@@ -1,0 +1,38 @@
+
+<!-- Adding [] around attribute tells Angular that we are binding the property to some ts value -->
+<!-- Add () around event names to capture those events -->
+
+<!-- (input) is fired on every keystroke -->
+<!-- $event passes information about the event -->
+<!-- [(ngModel)] sets the model for the input element to set up 2 way data binding -->
+
+<label for="">Server Name</label>
+<!-- <input 
+    type="text"
+    class="form-control"
+    (input)="onUpdateServerName($event)">
+-->
+
+<input 
+    type="text"
+    class="form-control"
+    [(ngModel)]="serverName">
+
+<!-- <p>{{ serverName }}</p> -->
+
+<button 
+    class="btn btn-primary"
+    [disabled]="!allowNewServer"
+    (click)="onCreateServer()">
+    Add Server
+</button>
+
+<!-- Can do both string interpolation and property binding -->
+<p [innerText]="allowNewServer"></p>
+<p>{{ allowNewServer }}</p>
+
+<p>{{ serverCreationStatus }}</p>
+
+<app-server></app-server>
+<app-server></app-server>
+
