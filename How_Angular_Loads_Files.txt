@@ -1,0 +1,13 @@
+PRE-REQ
+After creating a new Angular project with ng new:
+
+1) main.ts is the first code to get executed.
+2) in main.ts, calls platformBrowserDynamic().bootstrapModule(AppModule)
+	=>where AppModule is from ./app/app.module.ts
+3) in app.module.ts, look for the "bootstrap" array which lists all of the components which Angular should know about
+	=>AppComponent is from ./app.component.ts (viewmodel)
+	=>has a corresponding ./app.component.html (view)
+4) src/main.ts -> src/app/app.module.ts -> src/app/app.component.xxx
+
+this allows the custom tag to be used in the index.html ie. <app-root>
+
