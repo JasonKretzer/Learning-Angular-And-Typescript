@@ -1,0 +1,50 @@
+
+<!-- Adding [] around attribute tells Angular that we are binding the property to some ts value -->
+<!-- Add () around event names to capture those events -->
+
+<!-- (input) is fired on every keystroke -->
+<!-- $event passes information about the event -->
+<!-- [(ngModel)] sets the model for the input element to set up 2 way data binding -->
+
+<label for="">Server Name</label>
+<!-- <input 
+    type="text"
+    class="form-control"
+    (input)="onUpdateServerName($event)">
+-->
+
+<input 
+    type="text"
+    class="form-control"
+    [(ngModel)]="serverName">
+
+<!-- <p>{{ serverName }}</p> -->
+
+<button 
+    class="btn btn-primary"
+    [disabled]="!allowNewServer"
+    (click)="onCreateServer()">
+    Add Server
+</button>
+
+<!-- <p>{{ serverCreationStatus }}</p> -->
+
+
+<!-- * marks ngIf as a structural directive which changes the structure of the dom -->
+<!-- in this case it adds the element to the dom when serverCreated is true -->
+<!-- this is not equivalent to setting display to block/none! -->
+<!-- note that the else is like a goto -->
+<p *ngIf="serverCreated; else noServer">Server was created, server name is {{ serverName }}.</p>
+<ng-template #noServer>
+    <p>No Server was Created!</p>
+</ng-template>
+
+
+<!-- Two ways to display -- can do either string interpolation and property binding -->
+<p [innerText]="allowNewServer"></p>
+<p>{{ allowNewServer }}</p>
+
+
+<app-server *ngFor="let server of servers"></app-server>
+
+

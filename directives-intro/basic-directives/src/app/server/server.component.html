@@ -1,0 +1,10 @@
+<!-- Put typescript EXPRESSIONS inside of double curly braces {{ some expression }} -->
+
+<!-- ngStyle is an attribute directive and does not change the dom -->
+<!-- Use the [] to bind to some property on the directive, they are not part of the directive name -->
+<!-- for ngClass below, apply the .online class if the serverStatus is 'online' -->
+<p 
+    [ngStyle]="{backgroundColor: getColor()}"
+    [ngClass]="{online: serverStatus === 'online'}">
+    {{ 'Server' }} with ID {{ serverId }} is {{ getServerStatus() }}
+</p>
